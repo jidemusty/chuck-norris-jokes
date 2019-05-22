@@ -1,0 +1,26 @@
+{
+    "name": "jidemusty/chuck-norris-jokes",
+    "description": "Create random Chuck Norris jokes.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mustapha Adubiagbe",
+            "email": "jidemustapha2013@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "JideMusty\\ChuckNorrisJokes\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JideMusty\\ChuckNorrisJokes\\Tests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    }
+}
