@@ -2,8 +2,8 @@
 
 namespace JideMusty\ChuckNorrisJokes\Test;
 
-use JideMusty\ChuckNorrisJokes\JokeFactory;
 use PHPUnit\Framework\TestCase;
+use JideMusty\ChuckNorrisJokes\JokeFactory;
 
 class JokeFactoryTest extends TestCase
 {
@@ -11,10 +11,10 @@ class JokeFactoryTest extends TestCase
     public function it_returns_a_random_joke()
     {
         $jokes = new JokeFactory([
-            'This is a joke'
+            'This is a joke',
         ]);
 
-        $joke =  $jokes->getRandomJoke();
+        $joke = $jokes->getRandomJoke();
 
         $this->assertSame('This is a joke', $joke);
     }
