@@ -2,23 +2,25 @@
 
 namespace JideMusty\ChuckNorrisJokes;
 
+use GuzzleHttp\Client;
+
 class JokeFactory
 {
-    protected $jokes = [
-        "If you can see Chuck Norris, he can see you. If you can\'t see Chuck Norris you may be only seconds away from death.",
-        'Chuck Norris does not wear a condom. Because there is no such thing as protection from Chuck Norris.',
-        "They once made a \"Chuck Norris\" brand toilet paper, but it wouldn't take shit from anybody.",
-    ];
+    const API_ENDPOINT = 'https://api.icndb.com/jokes/random';
 
-    public function __construct(array $jokes = null)
+    protected $client;
+
+    public function __construct(Client $client = null)
     {
-        if ($jokes) {
-            $this->jokes = $jokes;
-        }
+        $this->client = $client ?: new Client();
     }
 
     public function getRandomJoke()
     {
-        return $this->jokes[array_rand($this->jokes)];
+        $response = $this->client->get(self::API_ENDPOINT);
+
+        $joke =  json_decode($response->getBody()->getContents());
+
+        return $joke->value->joke;
     }
 }
