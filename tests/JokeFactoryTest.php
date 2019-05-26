@@ -3,8 +3,8 @@
 namespace JideMusty\ChuckNorrisJokes\Test;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Handler\MockHandler;
 use JideMusty\ChuckNorrisJokes\JokeFactory;
