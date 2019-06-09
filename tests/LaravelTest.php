@@ -2,6 +2,7 @@
 
 namespace JideMusty\ChuckNorrisJokes\Tests;
 
+use JideMusty\ChuckNorrisJokes\Models\Joke;
 use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\Artisan;
 use JideMusty\ChuckNorrisJokes\Facades\ChuckNorris;
@@ -22,6 +23,13 @@ class LaravelTest extends TestCase
         return [
             'ChuckNorris' => ChuckNorrisCommand::class,
         ];
+    }
+
+    protected function getEnvironmentSetUp($app)
+    {
+        include_once __DIR__.'/../database/migrations/create_jokes_table.php.stub';
+
+        (new \CreateJokesTable)->up();
     }
 
     /** @test */
@@ -51,5 +59,17 @@ class LaravelTest extends TestCase
             ->assertViewIs('chuck-norris::joke')
             ->assertViewHas('joke', 'some joke')
             ->assertStatus(200);
+    }
+
+    /** @test */
+    public function it_can_access_the_database()
+    {
+        $joke = new Joke();
+        $joke->joke = 'a new joke';
+        $joke->save();
+
+        $newJoke = Joke::find($joke->id);
+
+        $this->assertSame($newJoke->joke, 'a new joke');
     }
 }
