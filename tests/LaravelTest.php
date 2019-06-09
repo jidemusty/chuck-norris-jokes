@@ -2,9 +2,9 @@
 
 namespace JideMusty\ChuckNorrisJokes\Tests;
 
-use JideMusty\ChuckNorrisJokes\Models\Joke;
 use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\Artisan;
+use JideMusty\ChuckNorrisJokes\Models\Joke;
 use JideMusty\ChuckNorrisJokes\Facades\ChuckNorris;
 use JideMusty\ChuckNorrisJokes\Console\ChuckNorrisCommand;
 use JideMusty\ChuckNorrisJokes\ChuckNorrisJokesServiceProvider;
