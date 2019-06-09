@@ -2,25 +2,25 @@
 
 namespace JideMusty\ChuckNorrisJokes\Tests;
 
-use JideMusty\ChuckNorrisJokes\ChuckNorrisJokesServiceProvider;
-use JideMusty\ChuckNorrisJokes\Console\ChuckNorrisCommand;
+use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\Artisan;
 use JideMusty\ChuckNorrisJokes\Facades\ChuckNorris;
-use Orchestra\Testbench\TestCase;
+use JideMusty\ChuckNorrisJokes\Console\ChuckNorrisCommand;
+use JideMusty\ChuckNorrisJokes\ChuckNorrisJokesServiceProvider;
 
 class LaravelTest extends TestCase
 {
     protected function getPackageProviders($app)
     {
         return [
-            ChuckNorrisJokesServiceProvider::class
+            ChuckNorrisJokesServiceProvider::class,
         ];
     }
 
     protected function getPackageAliases($app)
     {
         return [
-            'ChuckNorris' => ChuckNorrisCommand::class
+            'ChuckNorris' => ChuckNorrisCommand::class,
         ];
     }
 
