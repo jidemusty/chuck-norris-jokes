@@ -60,7 +60,6 @@ class LaravelTest extends TestCase
             ->assertViewHas('joke', 'some joke')
             ->assertStatus(200);
     }
-<<<<<<< HEAD
 
     /** @test */
     public function it_can_access_the_database()
@@ -74,6 +73,3 @@ class LaravelTest extends TestCase
         $this->assertSame($newJoke->joke, 'a new joke');
     }
 }
-=======
-}
->>>>>>> 40df09f5b8ed7fda4b572104bc41f0dcba4aa7f4
